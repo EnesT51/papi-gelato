@@ -1,7 +1,7 @@
-vraag = ""
-smaak =''
+vraag = ''
+smaak = ''
 def begin():
-    print('Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is. ')
+    print('Welkom bij Papi Gelato.')
 
 def bedankt():
     print("Bedankt en tot ziens!")
@@ -31,7 +31,7 @@ def hoorentje_bakje():
         smaken()
         print('Hier is uw hoorntje met {} bolletje(s).'.format(vraag))
         bestellen()
-        
+
     elif vraag2 =='b' or vraag2 == 'B':
         smaken()
         print("Hier is uw bakje met {} bolletje(s).".format(vraag))
