@@ -32,11 +32,11 @@ def bon():
 
     totaal = (totaalbollen * prijsbolletjes + aantalbak * prijsbakje + aantalhoorn * prijshorrentjes)
     print("------------[Papi Gelato]-------------")
-    print("bollentjes",totaalbollen,"x", format(totaal1,".2f"))
-    print("hoornje",aantalhoorn,"x" , totaal3)
-    print("bakje",aantalbak,"x" , totaal2)
+    print("Bollentjes",totaalbollen,"x", format(totaal1,".2f"))
+    print("Hoornje",aantalhoorn,"x" , totaal3)
+    print("Bakje",aantalbak,"x" , totaal2)
     print("------------------------------------------------")
-    print("totaal moet je" , format(totaal ,".2f") , "betalen")
+    print("Totaal moet je" , format(totaal ,".2f") , "betalen")
     
 
 def bestellen():
