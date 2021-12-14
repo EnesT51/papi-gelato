@@ -48,10 +48,7 @@ def bestellen():
         bestellen()
 
 def hoorntje_bakje():
-    global vraag
-    global smaak
-    global aantalbak
-    global aantalhoorn
+    global vraag,smaak,aantalbak,aantalhoorn
     vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(vraag)).lower()
     if vraag2 =='a' or vraag2 =='A':
         aantalhoorn +=1
