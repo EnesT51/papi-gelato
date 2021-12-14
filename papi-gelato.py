@@ -9,8 +9,6 @@ aantalbak = 0
 aantalhoorn = 0
 totaalbollen = 0
 
-
-
 def begin():
     print('Welkom bij Papi Gelato.')
 
@@ -38,7 +36,6 @@ def bon():
     print("------------------------------------------------")
     print("Totaal moet je" , format(totaal ,".2f") , "betalen")
     
-
 def bestellen():
     vraag3 = input('wilt u nog meer bestellen Y/N:? ')
     if vraag3 == 'y' or vraag3 == 'Y':
