@@ -9,6 +9,11 @@ aantalbak = 0
 aantalhoorn = 0
 totaalbollen = 0
 
+slagroom = 0.50
+sprinkels = 0.30
+caramel_hoorntje = 0.60
+caramel_bakje = 0.90
+
 def begin():
     print('Welkom bij Papi Gelato.')
 
@@ -21,6 +26,10 @@ def sorry():
 def grote():
     print("Sorry, zulke grote bakken hebben we niet")
 
+def topping():
+    nummer2 = 0
+    
+    
 def bon():
     global totaalbollen
     totaalbollen += vraag
@@ -29,10 +38,17 @@ def bon():
     totaal3 = aantalhoorn * prijshorrentjes
 
     totaal = (totaalbollen * prijsbolletjes + aantalbak * prijsbakje + aantalhoorn * prijshorrentjes)
+
     print("------------[Papi Gelato]-------------")
-    print("Bollentjes",totaalbollen , "x" , "€" , format(totaal1,".2f"))
-    print("Hoornje",aantalhoorn , "x" , "€" , totaal3)
-    print("Bakje",aantalbak , "x" , "€" , totaal2)
+    print("Bollentjes",totaalbollen , "x" , prijsbolletjes, "=" , "€", format(totaal1,".2f"))
+    if aantalhoorn >0:
+        print("Hoornje",aantalhoorn , "x" , "€" , totaal3)
+    else:
+        None
+    if aantalbak >0:
+        print("Bakje",aantalbak , "x" , "€" , totaal2)
+    else:
+        None
     print("------------------------------------------------")
     print("Totaal" , "€" , format(totaal ,".2f"),"betalen")
     
