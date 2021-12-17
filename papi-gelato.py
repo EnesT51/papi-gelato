@@ -45,7 +45,8 @@ def topping(bakje_hoorntje):
             toppingstotaal += sprinkels
         elif toppings == "d" or toppings == "D":
             toppings1+=1
-            if bakje_hoorntje == "a" or bakje_hoorntje == "A":
+            if bakje_hoorntje == "hoorntje":
+                
                 toppingstotaal += caramelH
             else:
                 toppingstotaal +=caramelB
@@ -81,56 +82,44 @@ def bon():
 def bestellen():
     vraag3 = input('wilt u nog meer bestellen Y/N:? ')
     if vraag3 == 'y' or vraag3 == 'Y':
-        bolletjes_stap1()
+        return True
     elif vraag3 == 'n' or vraag3 == 'N':
-        bedankt()
-        quit()
+        
+        return False
     else:
         sorry()
         bestellen()
 
 def hoorntje_bakje():
-    global vraag,smaak,aantalbak,aantalhoorn,caramelH,caramel_bakje
-    vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(vraag)).lower()
-    if vraag2 =='a' or vraag2 =='A':
-        aantalhoorn +=1
-        topping(vraag2)
-        smaken()
-        print('Hier is uw hoorntje met {} bolletje(s).'.format(vraag))
-        bon()
-        bestellen()
+    herhaal = True
+    while herhaal:
+        herhaal = False
+        global vraag,smaak,aantalbak,aantalhoorn,caramelH,caramel_bakje
+        vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(vraag)).lower()
+        if vraag2 =='a' or vraag2 =='A':
+            return "hoorntje"
 
-    elif vraag2 =='b' or vraag2 == 'B':
-        aantalbak +=1
-        topping(vraag2)
-        smaken()
-        print("Hier is uw bakje met {} bolletje(s).".format(vraag))
-        bon()
-        bestellen()
-        
-    else:
-        sorry()
-        hoorntje_bakje()
+        elif vraag2 =="b" or vraag2 == "B":
+            return "bakje"
+           
+        else:
+            sorry()
+            hoorntje_bakje()
+            return
 
 def bolletjes_stap1():
     global vraag, aantalbak
     vraag = int (input("Hoeveel bolletjes wilt u?: "))
-    if vraag >=1 and vraag <=3:
-        hoorntje_bakje()
-    elif vraag >=4 and vraag <=8:
-        aantalbak+=1
-        smaken()
-        print("Dan krijgt u van mij een bakje met {} bolletjes".format(vraag))
-        bon()
-        bestellen()
-        
+    if vraag >=1 and vraag <=8:
+        return vraag
+  
     else:
         grote()
         bolletjes_stap1()
 
-def smaken():
+def smaken(aantalbolletjes):
     nummer = 0
-    for i in range(int(vraag)):
+    for i in range(aantalbolletjes):
         nummer+=1
         smaak = input('Welke smaak wilt u voor bolletje nummer {}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? '.format(nummer))
         if smaak == 'a' or smaak == 'A':
@@ -147,4 +136,26 @@ def smaken():
 
 #(----------------------------------funcions above---------------------------------------------------)
 begin()
-bolletjes_stap1()
+actief = True
+while actief == True:
+    bolletje = bolletjes_stap1()
+    totaalbollen += bolletje
+    if bolletje >=1 and bolletje <=3:
+        keuze_hoorn_bakje = hoorntje_bakje()
+    elif bolletje >= 3 and bolletje <=8:
+        keuze_hoorn_bakje = "bakje"
+    print("Dan krijgt u van mij een {} met {} bolletjes".format(keuze_hoorn_bakje,bolletje))
+    if keuze_hoorn_bakje == "hoorntje":
+        
+        aantalhoorn +=1
+    else:
+        aantalbak +=1
+
+    smaken(bolletje)
+    topping(keuze_hoorn_bakje)
+    actief = bestellen()
+
+bedankt()
+bon()
+
+
