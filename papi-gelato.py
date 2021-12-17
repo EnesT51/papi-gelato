@@ -11,8 +11,11 @@ totaalbollen = 0
 
 slagroom = 0.50
 sprinkels = 0.30
-caramel_hoorntje = 0.60
-caramel_bakje = 0.90
+caramelH = 0.60
+caramelB =0.90
+
+toppings1 = 0
+toppingstotaal = 0
 
 def begin():
     print('Welkom bij Papi Gelato.')
@@ -26,18 +29,37 @@ def sorry():
 def grote():
     print("Sorry, zulke grote bakken hebben we niet")
 
-def topping():
-    nummer2 = 0
-    
-    
+def topping(bakje_hoorntje):
+    repeat = True
+    while repeat:
+        repeat = False
+        global toppings1,toppingstotaal
+        toppings = input("Wat voor topping wilt u: A) Geen, B) Slagroom, C) Sprinkels of D) Caramel Saus?")
+        if toppings == "a" or toppings == "A":
+            pass
+        elif toppings == "b" or toppings == "B":
+            toppings1+=1
+            toppingstotaal += slagroom
+        elif toppings == "c" or toppings == "C":
+            toppings1+=1
+            toppingstotaal += sprinkels
+        elif toppings == "d" or toppings == "D":
+            toppings1+=1
+            if bakje_hoorntje == "a" or bakje_hoorntje == "A":
+                toppingstotaal += caramelH
+            else:
+                toppingstotaal +=caramelB
+        else:
+            sorry()
+            repeat = True
+            
 def bon():
-    global totaalbollen
+    global totaalbollen,toppings
     totaalbollen += vraag
     totaal1 = totaalbollen * prijsbolletjes
     totaal2 = aantalbak * prijsbakje
     totaal3 = aantalhoorn * prijshorrentjes
-
-    totaal = (totaalbollen * prijsbolletjes + aantalbak * prijsbakje + aantalhoorn * prijshorrentjes)
+    totaal = (totaalbollen * prijsbolletjes + aantalbak * prijsbakje + aantalhoorn * prijshorrentjes + toppings1 * toppingstotaal)
 
     print("------------[Papi Gelato]-------------")
     print("Bollentjes",totaalbollen , "x" , prijsbolletjes, "=" , "€", format(totaal1,".2f"))
@@ -47,6 +69,10 @@ def bon():
         None
     if aantalbak >0:
         print("Bakje",aantalbak , "x" , "€" , totaal2)
+    else:
+        None
+    if toppings1 >0:
+        print("Topping", toppings1, "x" , "€" , toppingstotaal)
     else:
         None
     print("------------------------------------------------")
@@ -64,10 +90,11 @@ def bestellen():
         bestellen()
 
 def hoorntje_bakje():
-    global vraag,smaak,aantalbak,aantalhoorn
+    global vraag,smaak,aantalbak,aantalhoorn,caramelH,caramel_bakje
     vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(vraag)).lower()
     if vraag2 =='a' or vraag2 =='A':
         aantalhoorn +=1
+        topping(vraag2)
         smaken()
         print('Hier is uw hoorntje met {} bolletje(s).'.format(vraag))
         bon()
@@ -75,6 +102,7 @@ def hoorntje_bakje():
 
     elif vraag2 =='b' or vraag2 == 'B':
         aantalbak +=1
+        topping(vraag2)
         smaken()
         print("Hier is uw bakje met {} bolletje(s).".format(vraag))
         bon()
