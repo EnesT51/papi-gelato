@@ -1,7 +1,5 @@
-vraag = ''
+vraag = 0
 smaak = ''
-
-literijs = 0
 
 prijsbolletjes = 1.10
 prijsbakje = 0.75
@@ -37,21 +35,23 @@ def particulier_zakelijk():
         herhaal2 = False
         part_zakelijk = input("Bent u (A) zakelijk of (B) particuier? kies (A) voor zakelijk (B) voor particulier ")
         if part_zakelijk == "a" or part_zakelijk == "A":
-            return zakelijksmaken()
+            return part_zakelijk
         elif part_zakelijk == "b" or part_zakelijk == "B":
-            return
+            return part_zakelijk
 
         else:
             sorry()
             herhaal2 = True
 
 def zakelijkbon():
-    global literijs
     prijsliterijs = 9.80
     totaal = literijs * prijsliterijs
     btw = (totaal/100)*6
     print("------------[Papi Gelato------------]")
-    print("liter       {} x {} = {:.2f}". format(int(literijs), prijsliterijs,totaal))
+    print("liter       {} x {} = {}". format((literijs), prijsliterijs,totaal))
+    print(                 "-----------------")
+    print("totaal             ""=".format(totaal))
+    print("btw 6%"          "=",btw)
 
 
 def zakelijksmaken():
@@ -151,7 +151,6 @@ def hoorntje_bakje():
             return
 
 def bolletjes_stap1():
-    global vraag2
     vraag = int (input("Hoeveel bolletjes wilt u?: "))
     if vraag >=1 and vraag <=8:
         return vraag
@@ -180,7 +179,7 @@ def smaken(aantalbolletjes):
 #(----------------------------------funcions above---------------------------------------------------)
 begin()
 actief = True
-while actief == True:
+while actief:
     part_zakelijk = particulier_zakelijk()
     if part_zakelijk == "a" or part_zakelijk == "A":
         part_zak = zakelijksmaken()
@@ -204,8 +203,8 @@ while actief == True:
         smaken(bolletje)
         topping(keuze_hoorn_bakje)
         actief = bestellen()
-
+        bon()
 bedankt()
-bon()
+
 
 
