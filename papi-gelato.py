@@ -1,3 +1,6 @@
+from typing import ByteString
+
+
 vraag = 0
 smaak = ''
 
@@ -28,6 +31,17 @@ def sorry():
         
 def grote():
     print("Sorry, zulke grote bakken hebben we niet")
+
+
+def nogmaals_bestellen():
+    bestellen = input("wilt u nog een bestelling plaatsen? Y/N ")
+    if bestellen == "y" or bestellen == "Y":
+        return True
+    elif bestellen == "n" or bestellen == "N":
+        return False
+    else:
+        sorry()
+        nogmaals_bestellen()
 
 def particulier_zakelijk():
     herhaal2 = True
@@ -182,8 +196,8 @@ while actief:
     part_zakelijk = particulier_zakelijk()
     if part_zakelijk == "a" or part_zakelijk == "A":
         part_zak = zakelijksmaken()
+        actief = nogmaals_bestellen()
         zakelijk_bon = zakelijkbon()
-        actief = False
     else: 
         part_zakelijk == "b" or part_zakelijk == "B"
         bolletje = bolletjes_stap1()
