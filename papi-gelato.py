@@ -48,10 +48,9 @@ def zakelijkbon():
     totaal = literijs * prijsliterijs
     btw = (totaal/100)*6
     print("------------[Papi Gelato------------]")
-    print("liter       {} x {} = {}". format((literijs), prijsliterijs,totaal))
-    print(                 "-----------------")
-    print("totaal             ""=".format(totaal))
-    print("btw 6%"          "=",btw)
+    print("liter     {} x {}   = € {}" . format((literijs), prijsliterijs,totaal))
+    print("totaal              = € {} ".format(totaal))
+    print("btw 6%              = € {}".format(btw,".f2"))
 
 
 def zakelijksmaken():
