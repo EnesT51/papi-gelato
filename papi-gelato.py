@@ -1,6 +1,3 @@
-from typing import ByteString
-
-
 vraag = 0
 smaak = ''
 
