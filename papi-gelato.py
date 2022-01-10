@@ -117,7 +117,7 @@ def bon():
     totaal =  (totaal1 + totaal2 + totaal3 + toppingstotaal)
 
     print("------------[Papi Gelato]-------------")
-    print("Bollentjes  {} x  = €{:.2f}  ".format(totaalbollen,prijsbolletjes,totaal1))
+    print("Bollentjes  {} x  = €{:.2f} = €{:.2f}  ".format(totaalbollen,prijsbolletjes,totaal1))
     if aantalhoorn >0:
         print("Hoornje {} x = €{}".format(aantalhoorn,totaal3))
     else:
@@ -127,7 +127,7 @@ def bon():
     else:
         None
     if toppings1 >0:
-        print("Topping {} x = €{}".format(toppings1,toppingstotaal))
+        print("Topping {} x = €{:.2f}".format(toppings1,toppingstotaal))
     else:
         None
     print("------------------------------------------------")
