@@ -56,12 +56,12 @@ def particulier_zakelijk():
 
 def zakelijkbon():
     prijsliterijs = 9.80
-    totaal = literijs * prijsliterijs
-    btw = (totaal/100)*9
+    totaal = (literijs * prijsliterijs)
+    btw = (totaal/109*9)
     print("------------[Papi Gelato------------]")
-    print("liter     {} x {}   = € {}" . format((literijs), prijsliterijs,totaal))
-    print("totaal              = € {} ".format(totaal,(".2f")))
-    print("btw 9%              = € {}".format(btw,".2f"))
+    print("liter         {:.2f} x {:.2f}   = €{:.2f}".format((literijs), prijsliterijs,totaal))
+    print("totaal                      = €{:.2f}".format(totaal))
+    print("btw (9%)                    = €{:.2f}".format(btw))
 
 
 def zakelijksmaken():
@@ -70,7 +70,7 @@ def zakelijksmaken():
     literijs = int (input("hoeveel liter ijs wilt u hebben? "))
     for x in range (literijs):
         literinhoud +=1
-        Zsmaken = input("Welke smaak wilt u voor {} literijs? A) Aardbei, C) Chocolade, M) Munt of V) Vanille?".format(literinhoud))
+        Zsmaken = input("Welke smaak wilt u voor {} literijs? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ".format(literinhoud))
         if Zsmaken == "a" or Zsmaken == "A":
             Zsmaken = "Aardbei"
         elif Zsmaken == "c" or Zsmaken == "C":
@@ -117,21 +117,21 @@ def bon():
     totaal =  (totaal1 + totaal2 + totaal3 + toppingstotaal)
 
     print("------------[Papi Gelato]-------------")
-    print("Bollentjes",totaalbollen , "x" , prijsbolletjes, "=" , "€", format(totaal1,".2f"))
+    print("Bollentjes  {} x  = €{:.2f}  ".format(totaalbollen,prijsbolletjes,totaal1))
     if aantalhoorn >0:
-        print("Hoornje",aantalhoorn , "x" , "€" , totaal3)
+        print("Hoornje {} x = €{}".format(aantalhoorn,totaal3))
     else:
         None
     if aantalbak >0:
-        print("Bakje",aantalbak , "x" , "€" , totaal2)
+        print("Bakje   {} x = €{}".format(aantalbak,totaal2))
     else:
         None
     if toppings1 >0:
-        print("Topping", toppings1, "x" , "€" , toppingstotaal)
+        print("Topping {} x = €{}".format(toppings1,toppingstotaal))
     else:
         None
     print("------------------------------------------------")
-    print("Totaal" , "€" , format(totaal ,".2f"),"betalen")
+    print("Totaal €{:.2f} betalen".format(totaal))
     
 def bestellen():
     vraag3 = input('wilt u nog meer bestellen Y/N:? ')
