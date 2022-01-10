@@ -1,7 +1,7 @@
 vraag = 0
 smaak = ''
 
-prijsbolletjes = 1.10
+prijsbolletjes = 0.95
 prijsbakje = 0.75
 prijshoorntjes = 1.25
 
@@ -24,7 +24,7 @@ def bedankt():
     print("Bedankt en tot ziens!")
 
 def sorry():
-    print("sorry dat snap ik niet")
+    print("Sorry dat is geen optie die we aanbieden...")
         
 def grote():
     print("Sorry, zulke grote bakken hebben we niet")
@@ -57,7 +57,7 @@ def particulier_zakelijk():
 def zakelijkbon():
     prijsliterijs = 9.80
     totaal = (literijs * prijsliterijs)
-    btw = (totaal/109*9)
+    btw = (totaal/106*6)
     print("------------[Papi Gelato------------]")
     print("liter         {:.2f} x {:.2f}   = €{:.2f}".format((literijs), prijsliterijs,totaal))
     print("totaal                      = €{:.2f}".format(totaal))
@@ -70,13 +70,11 @@ def zakelijksmaken():
     literijs = int (input("hoeveel liter ijs wilt u hebben? "))
     for x in range (literijs):
         literinhoud +=1
-        Zsmaken = input("Welke smaak wilt u voor {} literijs? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ".format(literinhoud))
+        Zsmaken = input("Welke smaak wilt u voor {} literijs? A) Aardbei, C) Chocolade, of V) Vanille? ".format(literinhoud))
         if Zsmaken == "a" or Zsmaken == "A":
             Zsmaken = "Aardbei"
         elif Zsmaken == "c" or Zsmaken == "C":
             Zsmaken = "Chocolade"
-        elif Zsmaken == "m" or Zsmaken == "M":
-            Zsmaken = "mint"
         elif Zsmaken == "v" or Zsmaken == "V":
             Zsmaken = "Vanille"
         else:
@@ -173,13 +171,11 @@ def smaken(aantalbolletjes):
     nummer = 0
     for i in range(aantalbolletjes):
         nummer+=1
-        smaak = input('Welke smaak wilt u voor bolletje nummer {}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? '.format(nummer))
+        smaak = input('Welke smaak wilt u voor bolletje nummer {}? A) Aardbei, C) Chocolade, of V) Vanille? '.format(nummer))
         if smaak == 'a' or smaak == 'A':
             smaak = 'Aardbei'
         elif smaak == 'c' or smaak == 'C':
             smaak = 'Chocolade'
-        elif smaak == 'm' or smaak == 'M':
-            smaak = 'Mint'
         elif smaak == 'v' or smaak == 'V':
             smaak = 'Vanille'
         else:
