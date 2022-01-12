@@ -1,4 +1,3 @@
-vraag = 0
 smaak = ''
 
 prijsbolletjes = 0.95
@@ -30,16 +29,6 @@ def grote():
     print("Sorry, zulke grote bakken hebben we niet")
 
 
-def nogmaals_bestellen():
-    bestellen = input("wilt u nog een bestelling plaatsen? Y/N ")
-    if bestellen == "y" or bestellen == "Y":
-        return True
-    elif bestellen == "n" or bestellen == "N":
-        return False
-    else:
-        sorry()
-        nogmaals_bestellen()
-
 def particulier_zakelijk():
     herhaal2 = True
     while herhaal2:
@@ -59,9 +48,9 @@ def zakelijkbon():
     totaal = (literijs * prijsliterijs)
     btw = (totaal/106*6)
     print("------------[Papi Gelato------------]")
-    print("liter         {:.2f} x {:.2f}   = €{:.2f}".format((literijs), prijsliterijs,totaal))
+    print("liter         {} x {:.2f}      = €{:.2f}".format((literijs), prijsliterijs,totaal))
     print("totaal                      = €{:.2f}".format(totaal))
-    print("btw (9%)                    = €{:.2f}".format(btw))
+    print("btw (6%)                    = €{:.2f}".format(btw))
 
 
 def zakelijksmaken():
@@ -108,7 +97,7 @@ def topping(bakje_hoorntje):
             
 def bon():
     global totaalbollen,toppings
-    totaalbollen += vraag
+    totaalbollen = bolletje
     totaal1 = totaalbollen * prijsbolletjes
     totaal2 = aantalbak * prijsbakje
     totaal3 = aantalhoorn * prijshoorntjes
@@ -142,11 +131,11 @@ def bestellen():
         sorry()
         bestellen()
 
-def hoorntje_bakje():
+def hoorntje_bakje(aantalbollen):
     herhaal = True
     while herhaal:
         herhaal = False
-        vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(vraag))
+        vraag2 = input('Wilt u deze {} bolletje(s) in A) een hoorntje of B) een bakje? '.format(aantalbollen))
         if vraag2 =='a' or vraag2 =='A':
             return "hoorntje"
 
@@ -189,14 +178,14 @@ while actief:
     part_zakelijk = particulier_zakelijk()
     if part_zakelijk == "a" or part_zakelijk == "A":
         part_zak = zakelijksmaken()
-        actief = nogmaals_bestellen()
         zakelijk_bon = zakelijkbon()
+        actief = False
     else: 
         part_zakelijk == "b" or part_zakelijk == "B"
         bolletje = bolletjes_stap1()
         totaalbollen += bolletje
         if bolletje >=1 and bolletje <=3:
-            keuze_hoorn_bakje = hoorntje_bakje()
+            keuze_hoorn_bakje = hoorntje_bakje(bolletje)
         elif bolletje >= 3 and bolletje <=8:
             keuze_hoorn_bakje = "bakje"
         print("Dan krijgt u van mij een {} met {} bolletjes".format(keuze_hoorn_bakje,bolletje))
