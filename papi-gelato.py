@@ -1,3 +1,5 @@
+# vraag = 0
+vraag = 0
 smaak = ''
 
 prijsbolletjes = 0.95
@@ -96,25 +98,25 @@ def topping(bakje_hoorntje):
             repeat = True
             
 def bon():
-    global totaalbollen,toppings
-    totaalbollen = bolletje
+    global totaalbollen,toppings,bolletje
+    bolletje = totaalbollen
     totaal1 = totaalbollen * prijsbolletjes
     totaal2 = aantalbak * prijsbakje
     totaal3 = aantalhoorn * prijshoorntjes
     totaal =  (totaal1 + totaal2 + totaal3 + toppingstotaal)
 
     print("------------[Papi Gelato]-------------")
-    print("Bollentjes  {} x  = €{:.2f} = €{:.2f}  ".format(totaalbollen,prijsbolletjes,totaal1))
+    print("Bollentjes  {} x = €{:.2f} = €{:.2f}  ".format(bolletje,prijsbolletjes,totaal1))
     if aantalhoorn >0:
-        print("Hoornje {} x = €{}".format(aantalhoorn,totaal3))
+        print("Hoornje     {} x = €{}".format(aantalhoorn,totaal3))
     else:
         None
     if aantalbak >0:
-        print("Bakje   {} x = €{}".format(aantalbak,totaal2))
+        print("Bakje       {} x = €{}".format(aantalbak,totaal2))
     else:
         None
     if toppings1 >0:
-        print("Topping {} x = €{:.2f}".format(toppings1,toppingstotaal))
+        print("Topping     {} x = €{:.2f}".format(toppings1,toppingstotaal))
     else:
         None
     print("------------------------------------------------")
@@ -171,7 +173,7 @@ def smaken(aantalbolletjes):
             sorry()
             smaken()
 
-#(----------------------------------funcions above---------------------------------------------------)
+#(---------------------------------- funcions ---------------------------------------------------)
 begin()
 actief = True
 while actief:
