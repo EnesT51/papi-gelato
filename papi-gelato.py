@@ -1,5 +1,3 @@
-# vraag = 0
-vraag = 0
 smaak = ''
 
 prijsbolletjes = 0.95
@@ -50,7 +48,7 @@ def zakelijkbon():
     totaal = (literijs * prijsliterijs)
     btw = (totaal/106*6)
     print("------------[Papi Gelato------------]")
-    print("liter         {} x {:.2f}      = €{:.2f}".format((literijs), prijsliterijs,totaal))
+    print("liter         {} x {:.2f}      = €{:.2f}".format((literijs),prijsliterijs,totaal))
     print("totaal                      = €{:.2f}".format(totaal))
     print("btw (6%)                    = €{:.2f}".format(btw))
 
@@ -84,12 +82,12 @@ def topping(bakje_hoorntje):
             toppings1+=1
             toppingstotaal += slagroom
         elif toppings == "c" or toppings == "C":
-            toppings1+=1
+            toppings1+= bolletje
             toppingstotaal += sprinkels
+            toppingstotaal = bolletje * sprinkels
         elif toppings == "d" or toppings == "D":
             toppings1+=1
             if bakje_hoorntje == "hoorntje":
-                
                 toppingstotaal += caramelH
             else:
                 toppingstotaal += caramelB
@@ -98,12 +96,13 @@ def topping(bakje_hoorntje):
             repeat = True
             
 def bon():
-    global totaalbollen,toppings,bolletje
+    global totaalbollen,bolletje
     bolletje = totaalbollen
     totaal1 = totaalbollen * prijsbolletjes
     totaal2 = aantalbak * prijsbakje
     totaal3 = aantalhoorn * prijshoorntjes
     totaal =  (totaal1 + totaal2 + totaal3 + toppingstotaal)
+    
 
     print("------------[Papi Gelato]-------------")
     print("Bollentjes  {} x = €{:.2f} = €{:.2f}  ".format(bolletje,prijsbolletjes,totaal1))
@@ -179,8 +178,8 @@ actief = True
 while actief:
     part_zakelijk = particulier_zakelijk()
     if part_zakelijk == "a" or part_zakelijk == "A":
-        part_zak = zakelijksmaken()
-        zakelijk_bon = zakelijkbon()
+        zakelijksmaken()
+        zakelijkbon()
         actief = False
     else: 
         part_zakelijk == "b" or part_zakelijk == "B"
