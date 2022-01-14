@@ -83,8 +83,7 @@ def topping(bakje_hoorntje):
             toppingstotaal += slagroom
         elif toppings == "c" or toppings == "C":
             toppings1+= bolletje
-            toppingstotaal += sprinkels
-            toppingstotaal = bolletje * sprinkels
+            toppingstotaal += bolletje * sprinkels
         elif toppings == "d" or toppings == "D":
             toppings1+=1
             if bakje_hoorntje == "hoorntje":
