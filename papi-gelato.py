@@ -33,12 +33,9 @@ def particulier_zakelijk():
     herhaal2 = True
     while herhaal2:
         herhaal2 = False
-        part_zakelijk = input("Bent u (A) zakelijk of (B) particuier? kies (A) voor zakelijk (B) voor particulier ")
-        if part_zakelijk == "a" or part_zakelijk == "A":
+        part_zakelijk = input("Bent u (A) zakelijk of (B) particuier? kies (A) voor zakelijk (B) voor particulier ").upper()
+        if part_zakelijk == "A" or part_zakelijk == "B":
             return part_zakelijk
-        elif part_zakelijk == "b" or part_zakelijk == "B":
-            return part_zakelijk
-
         else:
             sorry()
             herhaal2 = True
