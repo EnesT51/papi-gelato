@@ -173,12 +173,12 @@ begin()
 actief = True
 while actief:
     part_zakelijk = particulier_zakelijk()
-    if part_zakelijk == "a" or part_zakelijk == "A":
+    if part_zakelijk == "A":
         zakelijksmaken()
         zakelijkbon()
         actief = False
     else: 
-        part_zakelijk == "b" or part_zakelijk == "B"
+        part_zakelijk == "B"
         bolletje = bolletjes_stap1()
         totaalbollen += bolletje
         if bolletje >=1 and bolletje <=3:
